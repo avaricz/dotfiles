@@ -1,0 +1,20 @@
+layout {
+    pane_template name="dev-pane" {
+        command "zsh"
+    }
+
+    tab name="Od Pocatku" {
+        pane split_direction="horizontal" {
+            pane split_direction="vertical" {
+                pane name="Nuxt" {
+                    command "zsh"
+                    args "-c" "cd ~/dev/od-pocatku-web && npm run dev"
+                }
+                pane name="Od pocatku" {
+                    command "zsh"
+                    args "-c" "cd ~/dev/od-pocatku-web && code ."
+                }
+            }
+        }
+    }
+}

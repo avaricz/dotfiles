@@ -1,0 +1,33 @@
+layout {
+
+    plugin location="zellij:status-bar"
+
+    pane_template name="dev-pane" {
+        command "zsh"
+    }
+
+    tab name="Robbe Project" {
+        pane split_direction="horizontal" {
+            pane split_direction="vertical" {
+                pane name="Backend" {
+                    command "zsh"
+                    args "-c" "cd ~/dev/navisys/license-portal-backend-api && nx serve"
+                }
+                pane name="Frontend" {
+                    command "zsh"
+                    args "-c" "cd ~/dev/navisys/license-portal-backend-api && nx serve frontend"
+                }
+            }
+            pane split_direction="vertical" {
+                pane name="Stripe" {
+                    command "zsh"
+                    args "-c" "cd ~/dev/navisys/stripe-mock-server && stripe listen --forward-to localhost:3000/stripe/webhook"
+                }
+                pane name="Scheduler" {
+                    command "zsh"
+                    args "-c" "cd ~/dev/navisys/license-portal-backend-api && nx serve-storage minio-storage"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+layout {
+    pane_template name="test-pane" {
+        command "zsh"
+    }
+    
+    tab name="Robbe Project" {
+        pane split_direction="horizontal" {
+            pane split_direction="vertical" {
+                pane name="Backend-test" {
+                    command "zsh"
+                    args "-c" "cd ~/dev/navisys/license-portal-backend-api && nx serve-for-test"
+                }
+                pane name="Tests" {
+                    command "zsh"
+                    args "-c" "cd ~/dev/navisys/license-portal-backend-api && npm run cypress"
+                }
+            }
+            pane split_direction="vertical" {
+                pane name="Stripe-test" {
+                    command "zsh"
+                    args "-c" "cd ~/dev/navisys/stripe-mock-server && nx serve "
+                }
+                pane name="Scheduler-test" {
+                    command "zsh"
+                    args "-c" "cd ~/dev/navisys/license-portal-backend-api && nx serve-storage minio-storage"
+                }
+            }
+        }
+    }
+}
