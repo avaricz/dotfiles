@@ -124,5 +124,9 @@ alias robbe-test='zellij --layout ~/.config/zellij/robbe-test.kdl'
 alias robbe-test-all='zellij --layout ~/.config/zellij/robbe-test-all.kdl'
 alias robbe-test-devmode='zellij --layout ~/.config/zellij/robbe-test-devmode.kdl'
 
+alias brave-reset='pkill -9 brave
+rm -f ~/.config/BraveSoftware/Brave-Browser/SingletonLock
+brave-browser --user-data-dir=$HOME/.config/BraveSoftware/NewProfile'
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
